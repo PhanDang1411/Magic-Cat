@@ -1,7 +1,7 @@
 Magic Cat 1
 ---
 
-This is an offline backup copy of the Magic Cat Academy game by Google.
+This is an offline.
 The game has been slightly modified to run in fullscreen.
 
 Playing the game offline
