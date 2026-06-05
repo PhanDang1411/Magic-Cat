@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <!-- Thu vien AI -->
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+        
+        <style>
+		#hplogo{height:690px;outline:none;overflow:hidden;position:relative;width:1224px;margin: 0 auto;-moz-user-select:-moz-none;-ms-user-select:none;-webkit-tap-highlight-color:transparent;-webkit-user-select:none}
+        #fpdoodle #hplogo{height:1080px;width:1920px}
+        #hplogo canvas{background:url(/cta_bg.png) no-repeat center;background-size:contain;height:100%;width:100%}
+        #dood #hplogo canvas{background:url(/ntp_bg.jpg) no-repeat;background-size:contain;cursor:crosshair;height:100%;width:100%}
+        body{background:#000; margin:0; text-align:center;}
+        #input_video {
+            position: fixed; bottom: 10px; right: 10px; width: 240px; height: 180px; 
+            border: 2px solid white; border-radius: 10px; z-index: 10000; transform: scaleX(-1);
+        }
+        
+        /* Ẩn toàn bộ các nút Share đè lên game */
+        #hplogo > *:not(canvas) {
+            display: none !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+        </style>
+    </head>
+    <body>
+        <script>
+            window.google = {}; window.google.doodle = {};
+            window.google.doodle.l10n = {"vi": {"ALL": {"{{LOGO_ALT_TEXT_HTML}}": "Halloween 2016", "{{LANGUAGE_DIRECTION}}": "ltr"}}};
+            window.google.doodle.allMsgs = {};
+        </script>
+
+        <div id="hplogo" tabindex="0" title="Halloween 2016" dir="ltr">
+            <canvas id="gameCanvas" width="640" height="360" dir="ltr"></canvas>
+        </div>
+
+        <!-- Khung Camera -->
+        <video id="input_video" autoplay playsinline></video>
+
+        <script>
+            (function() {
+                var b = function(p, h) {
+                    var d = document.createElement("script");
+                    d.async = !0; h && (d.onload = h); d.src = p; document.body.appendChild(d);
+                };
+                if (!window.google.doodle.loaded) {
+                    b("halloween16.js"); window.google.doodle.loaded = true;
+                }
+            }).call(this);
+        </script>
+
+        <!-- Gọi AI -->
+        <script src="controller.js?v=999"></script>
+    </body>
+</html>
